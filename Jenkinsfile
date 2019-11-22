@@ -2,6 +2,4 @@
 @Library ('jenkins-pipeline')
 
 def util = new com.acceleratedskillup.Calculator()
-def PWD = pwd()
-println PWD
 def dockerImage = docker.build("192.168.76.177/docker-dd/build-${JOB_NAME}:${BUILD_NUMBER}")
