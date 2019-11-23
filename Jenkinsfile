@@ -12,7 +12,6 @@ node ('master') {
    sh "git clone https://github.com/duydoxuan/xray-pipeline-integration.git"
    dir("xray-pipeline-integration/docker-example/docker"){
       sh "docker build -t ${dockerImage} ."
-      println (buildImage)
     }
       util.createNewInstanceArtifact(ART_URL,ART_USER,ART_PASSWORD)
       def buildInfo = util.rtDocker.push "${dockerImage}", "docker-dd"
