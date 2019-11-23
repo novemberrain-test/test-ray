@@ -19,8 +19,7 @@ node ('master') {
       //util.rtServer.publishBuildInfo buildInfo
       def xrayConfig = [
          'buildName'   : buildInfo.name,
-         'buildNumber' : buildInfo.number,
-         'failBuild'   : "${params.FAIL_BUILD}".toBoolean()
+         'buildNumber' : buildInfo.number
        ]
       xrayResults = util.rtServer.xrayScan xrayConfig
       echo xrayResults as String
