@@ -14,7 +14,7 @@ node ('master') {
       buildImage = sh(script: "docker build -t ${dockerImage} .", returnStdout: true)
       println (buildImage)
     }
-    if (buildImage == True) {
+    if (buildImage == true) {
       util.createNewInstanceArtifact(ART_URL,ART_USER,ART_PASSWORD)
       def buildInfo = util.rtDocker.push "${dockerImage}", "docker-dd"
       //dsfdsfds
