@@ -3,7 +3,7 @@
 def util = new com.acceleratedskillup.Calculator()
 //def dockerImage = "192.168.76.177/docker-dd/build-${JOB_NAME}:${BUILD_NUMBER}"
 node ('master') {
-  dir('docker'){
+    sh "mv docker/Dockerfile ."
     def dockerImage = docker.build("192.168.76.177/docker-dd/build-${JOB_NAME}:${BUILD_NUMBER}")
-  }
+
 }
