@@ -5,6 +5,6 @@ def util = new com.acceleratedskillup.Calculator()
 node ('master') {
     dir('docker'){
     //def dockerImage = docker.build("192.168.76.177/docker/build-${JOB_NAME}:${BUILD_NUMBER}")
-        sh "docker build -t ."
+        sh "docker build abc -t ."
     }
 }
