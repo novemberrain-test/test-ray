@@ -16,7 +16,7 @@ node ('master') {
       util.createNewInstanceArtifact(ART_URL,ART_USER,ART_PASSWORD)
       def buildInfo = util.rtDocker.push "${dockerImage}", "docker-dd"
       //dsfdsfds
-      //util.rtServer.publishBuildInfo buildInfo
+      util.rtServer.publishBuildInfo buildInfo
       def xrayConfig = [
          'buildName'   : buildInfo.name,
          'buildNumber' : buildInfo.number
