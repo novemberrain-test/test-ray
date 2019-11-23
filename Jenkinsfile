@@ -2,6 +2,7 @@
 @Library ('jenkins-pipeline')
 import com.acceleratedskillup.*
 def util = new com.acceleratedskillup.Calculator()
+def buildInfo = ''
 def xrayConfig = [
    'buildName'   : buildInfo.name,
    'buildNumber' : buildInfo.number,
