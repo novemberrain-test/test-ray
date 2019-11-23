@@ -15,5 +15,6 @@ node ('master') {
       sh "docker build -t ${dockerImage} ."
       }
     util.createNewInstanceArtifact(ART_URL,ART_USER,ART_PASSWORD)
+    def buildInfo = rtDocker.push "${dockerImage}", "docker-dd"
    }
 }
