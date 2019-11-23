@@ -11,7 +11,7 @@ node ('master') {
    stage('pushlish artifact'){
    sh "git clone https://github.com/duydoxuan/xray-pipeline-integration.git"
    dir("xray-pipeline-integration/docker-example/docker"){
-      def buildImage = sh(script: "docker build -t ${dockerImage} .", returnStdout: true)
+      buildImage = sh(script: "docker build -t ${dockerImage} .", returnStdout: true)
       println (buildImage)
     }
     if (buildImage == True) {
