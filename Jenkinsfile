@@ -2,12 +2,6 @@
 @Library ('jenkins-pipeline')
 import com.acceleratedskillup.*
 def util = new com.acceleratedskillup.Calculator()
-def buildInfo = ''
-def xrayConfig = [
-   'buildName'   : buildInfo.name,
-   'buildNumber' : buildInfo.number,
-   'failBuild'   : "${params.FAIL_BUILD}".toBoolean()
-       ]
 def dockerImage     = "192.168.76.177:8081/docker-dd/build-${JOB_NAME}:${BUILD_NUMBER}"
 def ART_URL        = 'http://192.168.76.177:8081'
 def ART_USER       = 'admin'
@@ -23,6 +17,11 @@ node ('master') {
       def buildInfo = util.rtDocker.push "${dockerImage}", "docker-dd"
       //dsfdsfds
       //util.rtServer.publishBuildInfo buildInfo
+      def xrayConfig = [
+         'buildName'   : buildInfo.name,
+         'buildNumber' : buildInfo.number,
+         'failBuild'   : "${params.FAIL_BUILD}".toBoolean()
+       ]
       xrayResults = util.rtServer.xrayScan xrayConfig
       echo xrayResults as String
    }
