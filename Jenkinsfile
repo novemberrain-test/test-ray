@@ -11,7 +11,8 @@ node ('master') {
    stage('pushlish artifact'){
    sh "git clone https://github.com/duydoxuan/xray-pipeline-integration.git"
    dir("xray-pipeline-integration/docker-example/docker"){
-      def buildImage = sh("docker build -t ${dockerImage} .", returnStdout: true)
+      def buildImage = sh(script: "docker build -t ${dockerImage} .", returnStdout: true)
+      println (buildImage)
     }
     if (buildImage == True) {
       util.createNewInstanceArtifact(ART_URL,ART_USER,ART_PASSWORD)
