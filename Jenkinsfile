@@ -12,7 +12,7 @@ node ('master') {
    stage('publish artifact'){
    sh "git clone https://github.com/duydoxuan/xray-pipeline-integration.git"
    dir("xray-pipeline-integration/docker-example/docker"){
-      sh "docker build -t ${dockerImage} ."
+      sh "docker build -t ${util.dockerImage} ."
     }
       util.createNewInstanceArtifact(ART_URL,ART_USER,ART_PASSWORD)
    }
