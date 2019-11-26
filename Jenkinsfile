@@ -3,7 +3,7 @@
 //import com.acceleratedskillup.*   
 def util = new com.acceleratedskillup.Calculator()
 util.repo = 'docker-dd'
-util.dockerImage     = "192.168.76.177:8081/${repo}/build-${JOB_NAME}:${BUILD_NUMBER}"
+util.dockerImage     = "192.168.76.177:8081/${util.repo}/build-${JOB_NAME}:${BUILD_NUMBER}"
 def ART_URL        = 'http://192.168.76.177:8081/artifactory'
 def ART_USER       = 'admin'
 def ART_PASSWORD   = 'password'
