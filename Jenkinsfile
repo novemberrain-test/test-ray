@@ -1,8 +1,8 @@
 #!/usr/bin/env groovy
 @Library ('jenkins-pipeline')
-import com.acceleratedskillup.*
-def repo = 'docker-dd'   
+import com.acceleratedskillup.*   
 def util = new com.acceleratedskillup.Calculator()
+def repo = 'docker-dd'
 def dockerImage     = "192.168.76.177:8081/${repo}/build-${JOB_NAME}:${BUILD_NUMBER}"
 def ART_URL        = 'http://192.168.76.177:8081/artifactory'
 def ART_USER       = 'admin'
