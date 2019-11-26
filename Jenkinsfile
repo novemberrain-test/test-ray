@@ -1,8 +1,9 @@
 #!/usr/bin/env groovy
 @Library ('jenkins-pipeline')
 import com.acceleratedskillup.*
+def repo = 'docker-dd'   
 def util = new com.acceleratedskillup.Calculator()
-def dockerImage     = "192.168.76.177:8081/testing/docker-dd/build-${JOB_NAME}:${BUILD_NUMBER}"
+def dockerImage     = "192.168.76.177:8081/${repo}/build-${JOB_NAME}:${BUILD_NUMBER}"
 def ART_URL        = 'http://192.168.76.177:8081/artifactory'
 def ART_USER       = 'admin'
 def ART_PASSWORD   = 'password'
@@ -14,7 +15,7 @@ node ('master') {
       sh "docker build -t ${dockerImage} ."
     }
       util.createNewInstanceArtifact(ART_URL,ART_USER,ART_PASSWORD)
-      def buildInfo = util.rtDocker.push "${dockerImage}", "docker-dd"
+      def buildInfo = util.rtDocker.push "${dockerImage}", "${repo}"
           util.rtServer.publishBuildInfo buildInfo
       def xrayConfig = [
          'buildName'   : buildInfo.name,
