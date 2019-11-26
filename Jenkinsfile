@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 @Library ('jenkins-pipeline')
-import com.acceleratedskillup.*   
+//import com.acceleratedskillup.*   
 def util = new com.acceleratedskillup.Calculator()
 def repo = 'docker-dd'
 def dockerImage     = "192.168.76.177:8081/${repo}/build-${JOB_NAME}:${BUILD_NUMBER}"
