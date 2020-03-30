@@ -73,7 +73,7 @@ env.TERM = "xterm"
 def URL = ''
 def GetJsonfile(){
     def url   = "http://github.com"
-    def token = "dL3JY3Mhqxfse9tU7pFy"
+    def token = ""
     def respone =  httpRequest "${url} + raw/duydoxuan/test-ray/ver.json"
     return jsonfile
 }
